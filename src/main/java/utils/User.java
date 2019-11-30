@@ -1,7 +1,11 @@
 package utils;
 
 public class User {
-    public String name = "";
+    public String   name;
+
+    public User() {
+        this.name = "";
+    }
 
     public User(String name) {
         this.setName(name);

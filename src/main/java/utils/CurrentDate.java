@@ -4,25 +4,31 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class CurrentDate {
-    public String CurrentDate = "";
-    public String CurrentHour = "";
+    public String   CurrentDate;
+    public String   CurrentHour;
+
+    public CurrentDate() {
+        this.CurrentDate = "";
+        this.CurrentHour = "";
+    }
 
     public String getCurrentDate() {
         setCurrentDate();
+
         return this.CurrentDate;
     }
 
     public String getCurrentHour() {
         setCurrentHour();
+
         return this.CurrentHour;
     }
 
     private void setCurrentDate() {
         SimpleDateFormat dateTimeCurrentFullDate = new SimpleDateFormat("EEEE dd MMMM");
         String FormatedCurrentDateMin = dateTimeCurrentFullDate.format(new Date());
-        String FormatedCurrentDate = FormatedCurrentDateMin.substring(0, 1).toUpperCase() + FormatedCurrentDateMin.substring(1);
 
-        this.CurrentDate = FormatedCurrentDate;
+        this.CurrentDate = FormatedCurrentDateMin.substring(0, 1).toUpperCase() + FormatedCurrentDateMin.substring(1);
     }
 
     private void setCurrentHour() {

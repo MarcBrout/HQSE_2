@@ -12,9 +12,9 @@ public class UserTest {
     }
 
     @Test
-    public void getUserNameTest() {
-        User user = new User("toto");
+    public void setNullUserNameTest() {
+        User user = new User();
 
-        assertEquals("toto", user.getName());
+        assertEquals("", user.getName());
     }
 }
