@@ -29,4 +29,13 @@ public class Bot {
     public String getNameBotFromTag(String tag) {
         return botTags.get(tag);
     }
+
+    public Boolean isBotCalledByEntry(String userEntry) {
+        for (Map.Entry<String,String> entry : this.botTags.entrySet()) {
+            if (entry.getKey().equals(userEntry)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

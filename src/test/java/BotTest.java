@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class BotTest {
 
@@ -41,6 +43,22 @@ public class BotTest {
         test.setName(name);
         assertNotNull(test.getName());
         assertEquals("hello", test.getName());
+    }
+
+    @Test
+    public final void   userEntryCallBot() {
+        Bot     test = new Bot();
+        String  userEntry = "@hello";
+
+        assertTrue(test.isBotCalledByEntry(userEntry));
+    }
+
+    @Test
+    public final void   badUserEntryCallBot() {
+        Bot     test = new Bot();
+        String  userEntry = "@hello";
+
+        assertFalse(test.isBotCalledByEntry(userEntry));
     }
 
 }
