@@ -48,7 +48,9 @@ public class CommandLine {
     }
 
     private boolean isInputValid(String[] argumentsToParse, int pos) {
-        return pos != OPTION_NOT_FOUND && pos + 1 < argumentsToParse.length && argumentsToParse[pos + 1].charAt(0) != '-';
+        return pos != OPTION_NOT_FOUND
+                && pos + 1 < argumentsToParse.length
+                && argumentsToParse[pos + 1].charAt(0) != '-';
     }
 
     public boolean isValid() {
