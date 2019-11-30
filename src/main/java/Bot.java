@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import utils.CurrentDate;
 
 public class Bot {
 
@@ -34,17 +33,10 @@ public class Bot {
     public Boolean isBotCalledByEntry(String userEntry) {
         for (Map.Entry<String, String> entry : this.botTags.entrySet()) {
             if (entry.getKey().equals(userEntry)) {
+                this.setName(entry.getValue());
                 return true;
             }
         }
         return false;
-    }
-
-    public void displayBotMessage() {
-        String username = "titi";
-        CurrentDate currentDate = new CurrentDate();
-
-        System.out.println("Salut " + username + "! Nous sommes " + currentDate.getCurrentDate()
-                + " et il est " + currentDate.getCurrentHour() + ".");
     }
 }
