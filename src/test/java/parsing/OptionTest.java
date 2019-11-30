@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class OptionTest {
-    Option requiredOption;
-    Option optionalOption;
+    private Option requiredOption;
+    private Option optionalOption;
 
     @BeforeEach
     void prepare() {
@@ -44,7 +44,8 @@ class OptionTest {
 
     @Test
     void getDescription() {
-        Assertions.assertEquals("This is the pseudonym that will be displayed to other users", requiredOption.getDescription());
+        Assertions.assertEquals("This is the pseudonym that will be displayed to other users",
+                requiredOption.getDescription());
         Assertions.assertEquals("Optional Option", optionalOption.getDescription());
     }
 

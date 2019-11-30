@@ -5,10 +5,11 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CommandLineTest {
-    Option optionP;
-    Option optionO;
-    Option optionL;
-    CommandLine commandLine;
+    private static final int OPTION_COUNT = 3;
+    private Option optionP;
+    private Option optionO;
+    private Option optionL;
+    private CommandLine commandLine;
 
     @BeforeEach
     void prepare() {
@@ -46,24 +47,24 @@ class CommandLineTest {
 
     @Test
     void addOption() {
-        assertEquals(3, commandLine.size());
+        assertEquals(OPTION_COUNT, commandLine.size());
     }
 
     @Test
     void evaluate() {
-        assertThrows(IllegalArgumentException.class, () -> commandLine.evaluate(new String[] { "-p", "pseudo", "-l" }));
-        assertDoesNotThrow(() -> commandLine.evaluate(new String[] { "-p", "pseudo", "-l", "longArgument" }));
+        assertThrows(IllegalArgumentException.class, () -> commandLine.evaluate(new String[] {"-p", "pseudo", "-l"}));
+        assertDoesNotThrow(() -> commandLine.evaluate(new String[] {"-p", "pseudo", "-l", "longArgument"}));
     }
 
     @Test
     void isValid() {
-        assertDoesNotThrow(() -> commandLine.evaluate(new String[] { "-p", "pseudo", "-l", "longArgument" }));
+        assertDoesNotThrow(() -> commandLine.evaluate(new String[] {"-p", "pseudo", "-l", "longArgument"}));
         assertTrue(commandLine.isValid());
     }
 
     @Test
     void getOptionValue() {
-        assertDoesNotThrow(() -> commandLine.evaluate(new String[] { "-p", "pseudo", "-l", "longArgument" }));
+        assertDoesNotThrow(() -> commandLine.evaluate(new String[] {"-p", "pseudo", "-l", "longArgument"}));
         assertTrue(commandLine.isValid());
 
         assertThrows(RuntimeException.class, () -> commandLine.getOptionValue("o"));
@@ -73,7 +74,7 @@ class CommandLineTest {
 
     @Test
     void hasOptions() {
-        assertDoesNotThrow(() -> commandLine.evaluate(new String[] { "-p", "pseudo", "-l", "longArgument" }));
+        assertDoesNotThrow(() -> commandLine.evaluate(new String[] {"-p", "pseudo", "-l", "longArgument"}));
         assertTrue(commandLine.hasOptions("p"));
         assertFalse(commandLine.hasOptions("o"));
         assertTrue(commandLine.hasOptions("l"));
