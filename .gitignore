@@ -24,3 +24,7 @@ hs_err_pid*
 /.gradle/
 
 build/reports/
+/build/tmp/
+/build/generated/
+
+build/
