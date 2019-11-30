@@ -2,6 +2,14 @@ install: gradle wrapper --gradle-version 5.2.1
 
 language: java
 
+deploy:
+  provider: releases
+  api_key: "06fc942d1222f42de73a259f5f6f842aad63c341"
+  file: "./build/libs/chatbot.jar"
+  skip_cleanup: true
+  on:
+    tags: true
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
