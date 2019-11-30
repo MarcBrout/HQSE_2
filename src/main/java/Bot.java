@@ -10,6 +10,7 @@ public class Bot {
         this.name = null;
         this.botTags = new HashMap<>();
         botTags.put("@hello", "hello");
+        botTags.put("@time", "time");
     }
 
     public String getName() {
@@ -30,13 +31,12 @@ public class Bot {
         return botTags.get(tag);
     }
 
-    public Boolean isBotCalledByEntry(String userEntry) {
-        for (Map.Entry<String, String> entry : this.botTags.entrySet()) {
-            if (entry.getKey().equals(userEntry)) {
-                this.setName(entry.getValue());
-                return true;
-            }
+    public void callBotByEntry(String userEntry) {
+        String value = this.botTags.get(userEntry);
+
+        if (value != null && !value.isEmpty()) {
+            this.setName(value);
         }
-        return false;
+        this.setName("system");
     }
 }

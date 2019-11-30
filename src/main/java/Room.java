@@ -39,7 +39,6 @@ public class Room {
     public void startRoom() {
         String  entry = getEntryUser();
 
-
         this.checkEntry(entry);
         while (!entry.equals("++")) {
             entry = getEntryUser();
@@ -48,9 +47,8 @@ public class Room {
     }
 
     private void    checkEntry(String entry) {
-        if (this.bot.isBotCalledByEntry(entry)) {
-            this.displayBotMessage();
-        }
+        this.bot.callBotByEntry(entry);
+        this.displayBotMessage(entry);
     }
 
     private String  getEntryUser() {
@@ -61,11 +59,18 @@ public class Room {
         return input.next();
     }
 
-    private void    displayBotMessage() {
+    private void    displayBotMessage(String entry) {
         CurrentDate currentDate = new CurrentDate();
 
-        System.out.println("[" + this.bot.getName() + "] Salut " + this.user.getName()
-                + "! Nous sommes " + currentDate.getCurrentDate()
-                + " et il est " + currentDate.getCurrentHour() + ".");
+        if (this.bot.getName().equals("time")) {
+            System.out.println("[" + this.bot.getName() + "] Salut " + this.user.getName()
+                    + "! Nous sommes " + currentDate.getCurrentDate()
+                    + " et il est " + currentDate.getCurrentHour() + ".");
+        } else if (this.bot.getName().equals("hello")) {
+            System.out.println("[" + this.bot.getName() + "] Salut " + this.user.getName() + "!");
+        } else {
+            System.out.println("[" + this.bot.getName() + "] Je ne connais pas le chatbot @" + entry + "!");
+        }
+
     }
 }
