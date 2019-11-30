@@ -37,14 +37,12 @@ public class Room {
     }
 
     public void startRoom() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("START ROOM");
-        String  entry = input.nextLine();
+        String  entry = getEntryUser();
 
 
         this.checkEntry(entry);
         while (!entry.equals("++")) {
-            entry = input.nextLine();
+            getEntryUser();
             this.checkEntry(entry);
         }
     }
@@ -55,12 +53,13 @@ public class Room {
         }
     }
 
-    /* private String  getEntryUser() {
+    private String  getEntryUser() {
+        Scanner input = new Scanner(System.in);
+
         System.out.print("[" + this.user.getName() + "] ");
 
-
-        return input.nextLine();
-    } */
+        return input.next();
+    }
 
     private void    displayBotMessage() {
         CurrentDate currentDate = new CurrentDate();
