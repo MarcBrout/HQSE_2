@@ -3,7 +3,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import utils.CurrentDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CurrentDateTest {
     @Test
@@ -11,10 +11,11 @@ public class CurrentDateTest {
         CurrentDate currentDate = new CurrentDate();
 
         SimpleDateFormat dateTimeCurrentFullDate = new SimpleDateFormat("EEEE dd MMMM");
-        String FormatedCurrentDateMin = dateTimeCurrentFullDate.format(new Date());
-        String FormatedCurrentDate = FormatedCurrentDateMin.substring(0, 1).toUpperCase() + FormatedCurrentDateMin.substring(1);
+        String formatedCurrentDateMin = dateTimeCurrentFullDate.format(new Date());
+        String formatedCurrentDate = formatedCurrentDateMin.substring(0, 1).toUpperCase()
+                + formatedCurrentDateMin.substring(1);
 
-        assertEquals(FormatedCurrentDate, currentDate.getCurrentDate());
+        assertEquals(formatedCurrentDate, currentDate.getCurrentDate());
     }
 
     @Test
@@ -22,9 +23,9 @@ public class CurrentDateTest {
         CurrentDate currentDate = new CurrentDate();
 
         SimpleDateFormat dateTimeCurrentHour = new SimpleDateFormat("HH:mm");
-        String FormatedCurrentHour = dateTimeCurrentHour.format(new Date());
-        FormatedCurrentHour = FormatedCurrentHour.replace(":", "h");
+        String formatedCurrentHour = dateTimeCurrentHour.format(new Date());
+        formatedCurrentHour = formatedCurrentHour.replace(":", "h");
 
-        assertEquals(FormatedCurrentHour, currentDate.getCurrentHour());
+        assertEquals(formatedCurrentHour, currentDate.getCurrentHour());
     }
 }

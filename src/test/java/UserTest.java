@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import utils.User;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTest {
     @Test
