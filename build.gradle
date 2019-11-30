@@ -1,0 +1,45 @@
+plugins {
+    id 'application'
+}
+
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion '8.26'
+    configFile file("config/checkstyle/checkstyle.xml")
+}
+
+checkstyleMain {
+    source ='src/main/java'
+    ignoreFailures false
+    showViolations true
+}
+
+checkstyleTest {
+    source ='src/test/java'
+    ignoreFailures false
+    showViolations true
+}
+
+group 'eu.epitech'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+mainClassName = "Main"
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+    }
+}
+
+dependencies {
+    testCompile "org.junit.jupiter:junit-jupiter-engine:5.2.0"
+    testCompile "org.mockito:mockito-core:2.+"
+}
