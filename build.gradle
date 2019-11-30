@@ -21,23 +21,18 @@ checkstyleTest {
     showViolations true
 }
 
-version = '1.0'
+group 'eu.epitech'
+version '1.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-task fatJar(type: Jar) {
+jar {
     manifest {
-        attributes 'Implementation-Title': 'Chat-bot Jar File',
-                'Implementation-Version': '1.0',
-                'Main-Class': 'eu.epitech.Main'
+        attributes 'Main-Class': 'Main'
     }
-    archiveName "chatbot.jar"
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
 
-group 'eu.epitech'
-version '1.0-SNAPSHOT'
+
 
 sourceCompatibility = 1.8
 

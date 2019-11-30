@@ -12,7 +12,7 @@ public class Room {
     public Room() {
         this.name = null;
         this.bot = new Bot();
-        this.user = new User("toto");
+        this.user = null;
     }
 
     public Bot getBot() {
@@ -42,7 +42,7 @@ public class Room {
 
         this.checkEntry(entry);
         while (!entry.equals("++")) {
-            getEntryUser();
+            entry = getEntryUser();
             this.checkEntry(entry);
         }
     }

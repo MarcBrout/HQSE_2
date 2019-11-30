@@ -46,13 +46,13 @@ public final class Option {
         return !this.isRequired || this.value != null;
     }
 
-    static final class Builder {
+    public static final class Builder {
         private String opt;
         private String longOpt;
         private String description;
         private boolean isRequired = false;
 
-        Builder(final String opt) {
+        public Builder(final String opt) {
             this.opt = opt;
         }
 
