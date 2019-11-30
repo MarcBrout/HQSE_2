@@ -56,7 +56,7 @@ public class BotTest {
     @Test
     public final void   badUserEntryCallBot() {
         Bot     test = new Bot();
-        String  userEntry = "@hello";
+        String  userEntry = "@goodbye";
 
         assertFalse(test.isBotCalledByEntry(userEntry));
     }
