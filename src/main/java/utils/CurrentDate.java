@@ -4,38 +4,38 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class CurrentDate {
-    public String   CurrentDate;
-    public String   CurrentHour;
+    private String   currentDate;
+    private String   currentHour;
 
     public CurrentDate() {
-        this.CurrentDate = "";
-        this.CurrentHour = "";
+        this.currentDate = "";
+        this.currentHour = "";
     }
 
     public String getCurrentDate() {
         setCurrentDate();
 
-        return this.CurrentDate;
+        return this.currentDate;
     }
 
     public String getCurrentHour() {
         setCurrentHour();
 
-        return this.CurrentHour;
+        return this.currentHour;
     }
 
     private void setCurrentDate() {
         SimpleDateFormat dateTimeCurrentFullDate = new SimpleDateFormat("EEEE dd MMMM");
-        String FormatedCurrentDateMin = dateTimeCurrentFullDate.format(new Date());
+        String formatedCurrentDateMin = dateTimeCurrentFullDate.format(new Date());
 
-        this.CurrentDate = FormatedCurrentDateMin.substring(0, 1).toUpperCase() + FormatedCurrentDateMin.substring(1);
+        this.currentDate = formatedCurrentDateMin.substring(0, 1).toUpperCase() + formatedCurrentDateMin.substring(1);
     }
 
     private void setCurrentHour() {
         SimpleDateFormat dateTimeCurrentHour = new SimpleDateFormat("HH:mm");
-        String FormatedCurrentHour = dateTimeCurrentHour.format(new Date());
-        FormatedCurrentHour = FormatedCurrentHour.replace(":", "h");
+        String formatedCurrentHour = dateTimeCurrentHour.format(new Date());
+        formatedCurrentHour = formatedCurrentHour.replace(":", "h");
 
-        this.CurrentHour = FormatedCurrentHour;
+        this.currentHour = formatedCurrentHour;
     }
 }
